@@ -1,0 +1,34 @@
+.my-order {
+    border: solid 10px #ccc;
+    background-color: #ccc;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.book-info {
+    float: right;
+}
+
+.book-info h4 ,.book-info .author{
+    width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.book-info span{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+a{
+    color: black;
+}
+
+.order-btn{
+    margin-top: 15px;
+}
+

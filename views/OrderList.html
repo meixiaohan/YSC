@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OrderList</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/orderlist.css">
+    <script src="/javascripts/jquery-1.11.3.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="border-bottom:3px solid #F2F2F2">
+        <div class="container">
+            <div class="nav">
+                <div class="left col-md-4">
+                    <%if(!user){%>
+                    <li>欢迎光临悦书城！请<a href="/tologin">登录</a>成为会员！</li>
+                    <%}else{%>
+                    <li>欢迎光临悦书城！会员&nbsp;&nbsp;<a href="">
+                            <%=user.nickname%></a>&nbsp;&nbsp;&nbsp;<a href="/layout" style='color:gray'>注销登录</a></li>
+                    <%}%>
+                </div>
+                <div class="right col-md-6 col-md-offset-2">
+                    <ul>
+                        <li><a href="/">回到首页</a></li>
+                        <li><a href="">我的书城</a></li>
+                        <li><a href="/order/getByEmail">我的订单</a></li>
+                        <li><a href=""><i style="font-size:14px;"><img src="images/购物车.png" alt="" style="width:16px;height:16px">&nbsp;&nbsp;</i>购物车</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top:40px">
+        <h1 style="margin-bottom:30px">
+            <span>
+                我的订单
+            </span>
+        </h1>
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab1" data-toggle="tab">进行中的订单</a></li>
+                <li><a href="#tab2" data-toggle="tab">已完成订单</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab1">
+                    <%if(Order!=[]){%>
+                    <%for(let item in Order){%>
+                    <%if(Order[item].Ostatus == '未完成'){%>
+                    <div class="col-md-3 my-order" style="margin-left:70px">
+                        <a href=""><img src="<%=Order[item].imgsrc%>" class="img-polaroid" alt="" style="width:100px;height:136px"></a>
+                        <div class="book-info">
+                            <a href="">
+                                <h4 style="color: #fff">&nbsp&nbsp&nbsp
+                                    <%=Order[item].Bname%>
+                                </h4>
+                            </a>
+                            <span class="author" style="color: #fff">&nbsp&nbsp&nbsp作者：
+                                <%=Order[item].Author%></span>
+                            <br>
+                            <span style="color: #fff;font-size:14px"><b style="color:#fff;font-size:14px">物流:</b>
+                                &nbsp&nbsp&nbsp
+                                <%=Order[item].Oconvey%></span>
+                            <br>
+                            <span style="color:red"><b style="color:#fff;font-size:16px">状态:</b> &nbsp&nbsp&nbsp
+                                <%=Order[item].Ostatus%></span>
+                        </div>
+                        <div class="order-btn">
+                            <div class="col-md-4">
+                                <div class="btn btn-info" style="margin-top: 10px">查看物流</div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-4">
+                                <div class="btn btn-info" style="margin-top: 10px">确认收货</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="btn btn-info" style="margin-top: 10px">联系商家</div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-4">
+                                <div class="btn btn-danger" style="margin-top: 10px">取消订单</div>
+                            </div>
+                        </div>
+                    </div>
+                    <%}%>
+                    <%}%>
+                    <%}%>
+                </div>
+                <div class="tab-pane" id="tab2">
+                    <%if(Order!=[]){%>
+                    <%for(let item in Order) {%>
+                    <%if(Order[item].Ostatus == '完成'){%>
+                    <div class="col-md-3 my-order" style="margin-left:70px">
+                        <a href=""><img src="<%=Order[item].imgsrc%>" class="img-polaroid" alt="" style="width:100px;height:136px"></a>
+                        <div class="book-info">
+                            <a href="">
+                                <h4 style="color: #fff">&nbsp&nbsp&nbsp
+                                    <%=Order[item].Bname%>
+                                </h4>
+                            </a>
+                            <span class="author" style="color: #fff">&nbsp&nbsp&nbsp作者：
+                                <%=Order[item].Author%></span>
+                            <br>
+                            <span style="color: #fff;font-size:14px"><b style="color:#fff;font-size:14px">物流:</b>
+                                &nbsp&nbsp&nbsp
+                                <%=Order[item].Oconvey%></span>
+                            <br>
+                            <span style="color:red"><b style="color:#fff;font-size:16px">状态:</b> &nbsp&nbsp&nbsp
+                                <%=Order[item].Ostatus%></span>
+                        </div>
+                        <div class="order-btn">
+                            <div class="col-md-4">
+                                <div class="btn btn-info" style="margin-top: 10px">提交评价</div>
+                            </div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-4">
+                                <div class="btn btn-danger" style="margin-top: 10px">申请售后</div>
+                            </div>
+                        </div>
+                    </div>
+                    <%}}}%>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

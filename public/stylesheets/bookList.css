@@ -1,0 +1,13 @@
+.title h4{
+    width: 200px;
+    font-size: 17px;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center
+}
+
+.book-list{
+    border-bottom: 2px solid #aaa;
+}

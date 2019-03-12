@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Regist</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap-theme.css">
+    <link rel="stylesheet" href="stylesheets/register.css">
+    <script src="javascripts/jquery-1.11.3.js"></script>
+    <script src="javascripts/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <div class="nav">
+                <li class="left-nav">欢迎光临悦书城</li>
+                <li class="right-nav">回到<a href="/">首页</a></li>
+            </div>
+        </div>
+        <div class="content">
+            <h1>悦书城用户注册</h1>
+            <div class="box">
+                <div class="login-box">
+                    <form class="form-horizontal">
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputEmail3" class="col-sm-3 control-label">邮箱:</label>
+                            <div class="col-sm-6">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="请输入邮箱...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputPassword3" class="col-sm-3 control-label">密码:</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" id="inputPassword1" placeholder="请输入密码...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputPassword3" class="col-sm-3 control-label">确认密码:</label>
+                            <div class="col-sm-6">
+                                <input type="password" class="form-control" id="inputPassword2" placeholder="请再次输入密码...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputNickName" class="col-sm-3 control-label">昵称:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id='nickname' placeholder="请输入昵称...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputNickName" class="col-sm-3 control-label">姓名:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id='name' placeholder="请输入您的姓名...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputPhone" class="col-sm-3 control-label">电话:</label>
+                            <div class="col-sm-6">
+                                <input type="number" class="form-control" id='tel' placeholder="请输入电话...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputAdd" class="col-sm-3 control-label">住址:</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id='add' placeholder="请输入住址...">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom:60px; ">
+                            <label for="inputSex" class="col-sm-3 control-label">性别:</label>
+                            <div class="col-sm-6">
+                                <select class="form-control" id='sex'>
+                                    <option>男</option>
+                                    <option>女</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class=" col-md-offset-2 col-md-4" style="margin-bottom:20px">
+                                <button type="button" id='regist-btn' class="btn btn-primary btn-lg" style="margin-left: 200px ;width: 200px;">注册</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $('#regist-btn').click(function () {
+                var email = $('#inputEmail').val();
+                var password1 = $('#inputPassword1').val();
+                var password2 = $("#inputPassword2").val();
+                var nickname = $('#nickname').val();
+                var tel = $('#tel').val();
+                var add = $('#add').val();
+                var sex = $('#sex').val();
+                var name = $('#name').val();
+                console.log(sex)
+
+
+                if (email == '' || nickname == '' || name == '' || add == '' || password1 == '' ||password2 == '') {
+                        alert('注册项目均为必填项！请仔细核对！')
+                } else {
+                    if (password1 == password2) {
+                        var data = {
+                            'email': email,
+                            'password': password1,
+                            'nickname': nickname,
+                            'tel': tel,
+                            'add': add,
+                            'sex': sex,
+                            'name': name
+                        }
+
+                        $.ajax({
+                            url: '/user/register',
+                            type: 'post',
+                            data: data,
+                            success: function (data) {
+                                if (data.msg == 'success') {
+                                    alert('创建账号成功！点击跳转登录！');
+                                    location.href = '/tologin'
+                                }
+                            }
+                        })
+                    }else{
+                        alert('两次输入密码不一致！')
+                    }
+
+                }
+
+
+            });
+        })
+    </script>
+</body>
+
+</html>

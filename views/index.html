@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index.html</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="stylesheets/bootstrap-theme.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/swiper.css">
+    <script src="javascripts/jquery-1.11.3.js"></script>
+    <script src="javascripts/bootstrap.js"></script>
+    <script src="javascripts/swiper.min.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="border-bottom:3px solid #F2F2F2">
+        <div class="container">
+            <div class="nav">
+                <div class="left col-md-4">
+                    <%if(!user){%>
+                    <li>欢迎光临悦书城！请<a href="tologin">登录</a>成为会员！</li>
+                    <%}else{%>
+                     <li>欢迎光临悦书城！会员&nbsp;&nbsp;<a href="#"><%=user.nickname%></a>&nbsp;&nbsp;&nbsp;<a href="/layout" style='color:gray'>注销登录</a></li>
+                     <%}%>
+                </div>
+                <div class="right col-md-6 col-md-offset-2">
+                    <ul>
+                        <li><a href="">客服服务</a></li>
+                        <li><a href="">我的书城</a></li>
+                        <li><a href="/order/getByEmail">我的订单</a></li>
+                        <li><a href="/"><i style="font-size:14px;"><img src="/images/购物车.png" alt="" style="width:16px;height:16px">&nbsp;&nbsp;</i>购物车</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="imgbox col-md-3" style="margin-left:-12px;">
+            <a href="#"><img src="images/logo.png" alt="" style="width:200px;height:160px;"></a>
+        </div>
+        <div class="serchBox col-md-5">
+            <input class="Serchtext" type="text" placeholder="文艺生活圈图书每满100减50">
+            <div class="serchImg">
+                <img src="images/搜索.png" alt="" style="width:40px;height: 40px;">
+            </div>
+        </div>
+        <div class="rightBox col-md-offset-1 col-md-3">
+            <div class="shopcar col-md-6"><a href="#"> <i><img src="images/购物车(白).png" alt="" style="width:30px;height:30px"></i>&nbsp;&nbsp;购物车</a></div>
+            <div class="order col-md-6"><a href="/order/getByEmail">我的订单</a></div>
+        </div>
+    </div>
+    <div class="container-fluid" style="border-bottom:4px solid red">
+        <div class="container">
+            <div class="content-nav-left col-md-2">
+               <a href="/book/getallBooks"><p>全部商品分类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="images/向下箭头.png" alt="" style="width:20px;height:20px;"></p></a> 
+            </div>
+            <div class="content-nav-right  col-md-7">
+                <ul>
+                    <li><a href="">秒杀</a></li>
+                    <li><a href="">优惠券</a></li>
+                    <li><a href="">闪购</a></li>
+                    <li><a href="">拍卖</a></li>
+                    <li><a href="">海囤全球</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="book-list col-md-2">
+            <ul>
+                <li><a href="/book/getBooksByTypeID/?id=28222495685">经管励志</a></li>
+                <li><a href="/book/getBooksByTypeID/?id=28222498231">考试用书</a></li>
+                <li><a href="/book/getBooksByTypeID/?id=29807635762">心灵励志</a></li>
+                <li><a href="/book/getBooksByTypeID/?id=34234234232">悬疑小说</a></li>
+                <li><a href="/book/getBooksByTypeID/?id=34238676767">经典名著</a></li>
+                <li><a href="/book/getBooksByTypeID/?id=86589696757">科幻小说</a></li>
+                <li><a href="/book/getBooksByTypeID/?id=98763829274">计算机科学</a></li>
+            </ul>
+        </div>
+
+        <div class="swiper-container  col-md-6 ">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/pic1.jpg" alt="" srcset="" style="width:660px"></div>
+                    <div class="swiper-slide"><img src="images/pic2.jpg" alt="" srcset="" style="width:660px"></div>
+                    <div class="swiper-slide"><img src="images/pic3.jpg" alt="" srcset="" style="width:660px"></div>
+                </div>
+             
+                <div class="swiper-pagination"></div>
+                
+     
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+        </div> 
+        <div class="infoBox col-md-3">
+            <div class="topBox">
+                <a href="/book/getBookById/?id=9787513918930"><img src="http://img3m8.ddimg.cn/64/22/25247638-1_w_1.jpg" alt="" srcset="" style="height:200px;width:200px"></a>
+            </div>
+            <div class="bottomBox">
+                <span class="col-md-12">信息公告</span>
+                <div class="info">
+                    <ul>
+                        <li class="col-md-12">年终狂欢五折疯抢!</li>
+                        <li class="col-md-12">文艺类品日满100减50！</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            var mySwiper = new Swiper('.swiper-container', {
+                direction: 'horizontal', 
+                loop: true, 
+                autoplay: true,
+                autoplay: {
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    renderBullet: function (index, className) {
+                        return '<span class="' + className + '">' + (index + 1) + '</span>';
+                    },
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+
+            $('.serchImg').click(function(){
+                var name = $('.Serchtext').val();
+                // var addr = '/book/getBookByName/?'+ name;
+                location.href = '/book/getBookByName/?name='+ name;
+                 
+            })
+        })
+    </script>
+
+
+</body>
+
+</html>

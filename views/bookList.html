@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>OrderList</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/orderlist.css">
+    <link rel="stylesheet" href="/stylesheets/bookList.css">
+    <script src="/javascripts/jquery-1.11.3.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" style="border-bottom:3px solid #F2F2F2">
+        <div class="container">
+            <div class="nav">
+                <div class="left col-md-4">
+                    <%if(!user){%>
+                    <li>欢迎光临悦书城！请<a href="/tologin">登录</a>成为会员！</li>
+                    <%}else{%>
+                    <li>欢迎光临悦书城！会员&nbsp;&nbsp;<a href="">
+                            <%=user.nickname%></a>&nbsp;&nbsp;&nbsp;<a href="/layout" style='color:gray'>注销登录</a></li>
+                    <%}%>
+                </div>
+                <div class="right col-md-6 col-md-offset-2">
+                    <ul>
+                        <li><a href="/">回到首页</a></li>
+                        <li><a href="">我的书城</a></li>
+                        <li><a href="/order/getByEmail">我的订单</a></li>
+                        <li><a href=""><i style="font-size:14px;"><img src="images/购物车.png" alt="" style="width:16px;height:16px">&nbsp;&nbsp;</i>购物车</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h1>图书列表</h1>
+        <hr>
+        <%if(msg=='有数据'){%>
+            <%for(let item in data){%>
+            <div class="col-md-3 book-list"  style="margin-bottom:20px">
+                <a href="/book/getBookById/?id=<%=data[item].Bid%>">
+                        <div class="imgbox">
+                        <img src="<%=data[item].imgsrc%>" alt="" style="width:200px;height:240px">
+                    </div>
+                    <hr>
+                <div class="title">
+                    <h4><%=data[item].Bname%></h4>
+                </div>
+              </div>
+                </a>
+            <%}%>
+         <%}else{%>     
+        <%}%>
+    </div>
+</body>
+
+</html>

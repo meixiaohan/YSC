@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book-Info</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.css">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="/stylesheets/swiper.css">
+    <script src="/javascripts/jquery-1.11.3.js"></script>
+    <script src="/javascripts/bootstrap.js"></script>
+    <script src="/javascripts/swiper.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid" style="border-bottom:3px solid #F2F2F2">
+        <div class="container">
+            <div class="nav">
+                <div class="left col-md-4">
+                    <%if(!user){%>
+                    <li>欢迎光临悦书城！请<a href="/tologin">登录</a>成为会员！</li>
+                    <%}else{%>
+                     <li>欢迎光临悦书城！会员&nbsp;&nbsp;<a href="#"><%=user.nickname%></a>&nbsp;&nbsp;&nbsp;<a href="/layout" style='color:gray'>注销登录</a></li>
+                     <%}%>
+                </div>
+                <div class="right col-md-6 col-md-offset-2">
+                    <ul>
+                        <li><a href="/">回到首页</a></li>
+                        <li><a href="">我的书城</a></li>
+                        <li><a href="/order/getByEmail">我的订单</a></li>
+                        <li><a href=""><i style="font-size:14px;"><img src="images/购物车.png" alt="" style="width:16px;height:16px">&nbsp;&nbsp;</i>购物车</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="imgbox col-md-3" style="margin-left:-12px;">
+            <a href="/"><img src="/images/logo.png" alt="" style="width:200px;height:160px;"></a>
+        </div>
+        <div class="serchBox col-md-5">
+            <input type="text" placeholder="文艺生活圈图书每满100减50">
+            <div class="serchImg">
+                <img src="/images/搜索.png" alt="" style="width:40px;height: 40px;">
+            </div>
+        </div>
+        <div class="rightBox col-md-offset-1 col-md-3">
+            <div class="shopcar col-md-6"><a href="#"> <i><img src="/images/购物车(白).png" alt="" style="width:30px;height:30px"></i>&nbsp;&nbsp;购物车</a></div>
+            <div class="order col-md-6"><a href="/order/getByEmail">我的订单</a></div>
+        </div>
+    </div>
+    <div class="container-fluid" style="border-bottom:4px solid red">
+        <div class="container">
+            <div class="content-nav-left col-md-2">
+                <p>全部商品分类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="/images/向下箭头.png" alt="" style="width:20px;height:20px;"></p>
+            </div>
+            <div class="content-nav-right  col-md-7">
+                <ul>
+                    <li><a href="">秒杀</a></li>
+                    <li><a href="">优惠券</a></li>
+                    <li><a href="">闪购</a></li>
+                    <li><a href="">拍卖</a></li>
+                    <li><a href="">海囤全球</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="bookImg col-md-2" style="margin-top:80px">
+            <img src="<%=book_info[0].imgsrc%>" alt="" srcset="" style="width:320px;height: 350px;margin-left:-16px;">
+        </div>
+        <div class="bookInfo col-md-7 col-md-offset-2">
+            <div class="title" style="margin-top:80px;margin-bottom: 20px">
+                <span style="font-size:24px ;">书名：</span>
+                <span style="color:black;font-size:24px;font-weight: bold;color:rgb(184, 8, 32)"><%=book_info[0].Bname%></span>
+            </div>
+            <div class="title2">
+                <span style="font-size:17px"><%=book_info[0].Content%>。<a href="#" style="color:cornflowerblue;font-size: 16px">&nbsp;&nbsp;经管励志好书，每满150减50，点此查看 </a> </span>
+            </div>
+            <div class="anyinfo" style="margin-top:10px">
+                <span>作者：</span><a href="#">&nbsp<%=book_info[0].Author%></a>
+                <span style="margin-left:13px">出版社:</span><a href="#">&nbsp<%=book_info[0].Publish%></a>
+                <span style="margin-left:16px">图书编号:&nbsp;&nbsp;&nbsp;<%=book_info[0].Bid%></span>
+            </div>
+            <div class="price" style="background-color:darkgray ;opacity:.6 ;margin-top:20px;">
+                <br>
+                <span style="margin-left:30px;overflow: hidden;font-size: 24px">悦读价:</span><br>
+                <span style="font-size: 24px;color:rgb(184, 8, 32);margin-left:30px;margin-top: 10px; font-size: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;￥<%=book_info[0].Price%></span>
+                <br>
+                <div class="block" style="height:20px"></div>
+            </div>
+             <div class="Btn" style="margin-top:30px">
+                <button type="button" class="btn btn-danger" style="width:130px;height:50px;margin-right:30px">加入购物车</button>
+                <button type="button" class="btn btn-info" style="width:130px;height:50px">立即购买</button>
+                <div class="Bstock" style="width: 130px;margin-left:165px;margin-top: 20px;background-color: darkgray">
+                    <span style="font-size:22px;color: dimgray">库存：<%=book_info[0].Bstock%></span>
+                </div>
+             </div>
+        </div>
+    </div>
+</body>
+</html>

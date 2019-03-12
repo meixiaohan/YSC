@@ -1,0 +1,204 @@
+li{
+    list-style: none;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.left li a{
+    color: red;
+}
+
+
+.left,
+.right{
+    height: 25px;
+}
+
+.left li,
+.right ul li  {
+    line-height: 25px;
+}
+
+.right ul li {
+    float: right;
+    padding-right: 20px;
+}
+
+.right ul li a{
+    color:black;
+}
+
+
+.right ul li a:hover{
+    color: red;
+    text-decoration: none;
+}
+
+
+.serchBox,
+.rightBox{
+    margin-top: 65px;
+}
+
+.serchBox input{
+    width: 395px;
+    height: 50px;
+    border-radius: 0;
+    border: 2px solid red;
+    padding-left:12px; 
+}
+
+.serchBox input:focus{
+    outline: none ;
+}
+
+.serchImg{
+    float: right;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+
+
+.rightBox .shopcar,
+.rightBox .order{
+    border: 1px solid #aaa;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.rightBox .shopcar {
+    background-color: red;
+    border: none;
+}
+
+.rightBox .shopcar a{
+    color: white;
+}
+
+.rightBox .shopcar:hover{
+    background-color: rgb(38, 138, 163);
+}
+
+.rightBox .order a{
+    color: gray;
+}
+
+.rightBox .order a:hover{
+    color: red;
+}
+
+
+.content-nav-left{
+    background-color:red; 
+    text-align: center;
+    height: 45px;
+    cursor: pointer;
+}
+
+.content-nav-left p{
+    line-height: 45px;
+    color: white;
+    font-size: 18px;
+}
+
+
+.content-nav-right{
+    text-align: center;
+    height: 45px;
+}
+
+
+.content-nav-right ul{
+    margin-left: -60px;
+}
+
+.content-nav-right ul li {
+    float: left;
+    line-height: 45px;
+    font-size: 18px;
+    margin-left: 80px;
+}
+
+.content-nav-right ul li a{
+    color: black;
+    font-weight: bold;
+}
+.content-nav-right ul li a:hover{
+    color: red;
+}
+
+
+
+.book-list li{
+    margin-left: -40px;
+    margin-bottom: 30px;
+    height: 55px;
+    line-height: 55px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.book-list  ul li a{
+    color: black;
+}
+
+.book-list  ul li a:hover{
+    color: red;
+}
+
+
+.swiper-container{
+    top:100px;
+    width:660px;
+    cursor: pointer;
+}
+
+.infoBox{
+    border: 1px solid #ccc;
+    height: 600px;
+}
+
+
+.infoBox .topBox{
+    height: 40%;
+    border-bottom: 1px solid #ccc;
+    margin: 0 auto ;
+    text-align: center;
+}
+
+.infoBox .topBox img{
+    margin-top: 20px;
+}
+
+.infoBox .bottomBox span{
+    margin: 0;
+    padding: 0;
+    font-size: 26px;
+    font-weight: 200;
+   text-align: center;
+    height: 100px;
+    line-height: 100px;
+    border-bottom: 1px solid #ccc;
+    color:black;
+}
+
+.infoBox .bottomBox  ul li{
+    font-size: 20px;
+    list-style: disc;
+    height: 50px;
+    line-height: 50px;
+    margin-top:20px;
+    cursor: pointer;
+    color: red;
+}
